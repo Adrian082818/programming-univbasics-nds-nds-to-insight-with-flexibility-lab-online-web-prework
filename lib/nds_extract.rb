@@ -82,7 +82,6 @@ def gross_per_studio(collection)
       row_index += 1 
     end
       column_index += 1 
-    end 
     return result
   end 
   # INPUT:
