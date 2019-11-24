@@ -109,8 +109,8 @@ def movies_with_directors_set(source)
       new_movie[directors] += movies 
       row_index += 1 
       column_index += 1 
-      return new_movie
     end 
+     return new_movie
   end 
   # RETURN:
   #
