@@ -38,7 +38,22 @@ def movies_with_director_key(name, movies_collection)
   # of movies and a directors name to the movie_with_director_name method
   # and accumulate the returned Array of movies into a new Array that's
   # returned by this method.
-  #
+  collection = []
+  row_index = 0 
+  while row_index < name.length do 
+    column_index = 0 
+    while column_index < name[row_index].length do 
+      movies_collection = name[row_index][column_index].length 
+      inner_index = 0 
+      while inner_index < movies_collection do 
+        collection << name[row_index][column_index][inner_index]
+        inner_index += 1 
+        column_index += 1 
+        row_index += 1 
+        return collection
+      end 
+    end 
+  end 
   # INPUT:
   # * name: A director's name
   # * movies_collection: An Array of Hashes where each Hash represents a movie
@@ -55,7 +70,20 @@ def gross_per_studio(collection)
   # GOAL: Given an Array of Hashes where each Hash represents a movie,
   # return a Hash that includes the total worldwide_gross of all the movies from
   # each studio.
-  #
+  result = {}
+  row_index = 0 
+  while row_index < collection.length do 
+    studio_name = collection[row_index][:name]
+    column_index = 0 
+    while column_index < studio_name.length do 
+      movies = collection[row_index][:movies]
+      studio_gross = movies[column_index][:worldwide_gross]
+      result[studio_name] += studio_gross
+      row_index += 1 
+      column_index += 1 
+      return result
+    end 
+  end 
   # INPUT:
   # * collection: Array of Hashes where each Hash where each Hash represents a movie
   #
@@ -71,7 +99,19 @@ def movies_with_directors_set(source)
   # INPUT:
   # * source: An Array of Hashes containing director information including
   # :name and :movies
-  #
+  new_movie = []
+  row_index = 0 
+  while row_index < source.length do
+    directors = source[row_index][:movies]
+    column_index = 0 
+    while column_index < directors.length do 
+      movies = source[row_index][:movies]
+      new_movie[directors] += movies 
+      row_index += 1 
+      column_index += 1 
+      return new_movie
+    end 
+  end 
   # RETURN:
   #
   # Array of Arrays containing all of a director's movies. Each movie will need
