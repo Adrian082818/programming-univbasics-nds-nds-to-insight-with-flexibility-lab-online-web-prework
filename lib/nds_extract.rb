@@ -75,14 +75,15 @@ def gross_per_studio(collection)
   while row_index < collection.length do 
     studio_name = collection[row_index][:name]
     column_index = 0 
+    movies = collection[row_index][:movies]
     while column_index < studio_name.length do 
-      movies = collection[row_index][:movies]
       studio_gross = movies[column_index][:worldwide_gross]
       result[studio_name] += studio_gross
       row_index += 1 
+    end
       column_index += 1 
-      return result
     end 
+    return result
   end 
   # INPUT:
   # * collection: Array of Hashes where each Hash where each Hash represents a movie
