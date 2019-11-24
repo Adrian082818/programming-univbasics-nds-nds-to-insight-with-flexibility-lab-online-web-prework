@@ -104,8 +104,8 @@ def movies_with_directors_set(source)
   while row_index < source.length do
     directors = source[row_index][:movies]
     column_index = 0 
+    movies = source[row_index][:movies]
     while column_index < directors.length do 
-      movies = source[row_index][:movies]
       new_movie[directors] += movies 
       row_index += 1 
       column_index += 1 
